@@ -35,15 +35,15 @@
                                     </a>
 
                                     @if(!$data->is_admin)
-                                    <form action="{{ route('admin.destroy', $data->id) }}" method="POST"
-                                          class="d-inline-block">
-                                        @csrf
-                                        @method('DELETE')
-                                        <a href="javascript:void(0)" class="btn btn-danger btn-sm text-white"
-                                           id="poz-buton-{{$data->id}}">
-                                            <i class="fas fa-trash"></i> {{ __('Delete') }}
-                                        </a>
-                                    </form>
+                                        <form action="{{ route('admin.destroy', $data->id) }}" method="POST"
+                                              class="d-inline-block">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="javascript:void(0)" class="btn btn-danger btn-sm text-white"
+                                               id="poz-buton-{{$data->id}}">
+                                                <i class="fas fa-trash"></i> {{ __('Delete') }}
+                                            </a>
+                                        </form>
                                     @endif
                                 </td>
                             </tr>
@@ -72,7 +72,8 @@
                         <div class="form-group">
 
                             <label for="name_tm">{{ __('First Name') }}</label>
-                            <input type="text" id="name_tm" class="form-control" name="name_tm" placeholder="{{ __('Name') }} tm" required>
+                            <input type="text" id="name_tm" class="form-control" name="name_tm"
+                                   placeholder="{{ __('Name') }} tm" required>
                         </div>
                         <div class="form-group">
                             <label for="name_ru">{{ __('Name') }} ru</label>
@@ -110,6 +111,30 @@
                     stateSave: true,
                     drawCallback: function () {
                         lazyLoadInstance.update();
+                    },
+                    language: {
+                        "decimal": "",
+                        "emptyTable": '{{ __("Showing 0 to 0 of 0 entries") }}',
+                        "info": '{{ __("Showing _START_ to _END_ of _TOTAL_ entries") }}',
+                        "infoEmpty": '{{ __("Showing 0 to 0 of 0 entries") }}',
+                        "infoFiltered": '{{ __("(filtered from _MAX_ total entries)") }}',
+                        "infoPostFix": "",
+                        "thousands": ",",
+                        "lengthMenu": '{{ __("Show _MENU_ entries") }}',
+                        "loadingRecords": '{{ __("Loading...") }}',
+                        "processing": '{{ __('processing') }}',
+                        "search": '{{ __("Search:") }}',
+                        "zeroRecords": '{{ __("No matching records found") }}',
+                        "paginate": {
+                            "first": '{{ __("First") }}',
+                            "last": '{{ __("Last") }}',
+                            "next": '{{__("Next")}}',
+                            "previous": '{{ __("Previous") }}'
+                        },
+                        "aria": {
+                            "orderable": '{{ __("Order by this column") }}',
+                            "orderableReverse": '{{ __('Reverse order this column') }}'
+                        }
                     }
                 });
 
@@ -134,7 +159,7 @@
                             $('#poz-buton-' + id).parent().submit();
                         } else {
                             Swal.fire(
-                                'Cancelled',
+                                '{{ __("Cancelled") }}',
                                 '{{ __("Cancel") }}',
                                 'error'
                             )

@@ -50,6 +50,37 @@
     @push('scripts')
         <script type="text/javascript">
             $(function () {
+                var lazyLoadInstance = new LazyLoad({});
+                $('#dataTable').DataTable({
+                    stateSave: true,
+                    drawCallback: function () {
+                        lazyLoadInstance.update();
+                    },
+                    language: {
+                        "decimal": "",
+                        "emptyTable": '{{ __("Showing 0 to 0 of 0 entries") }}',
+                        "info": '{{ __("Showing _START_ to _END_ of _TOTAL_ entries") }}',
+                        "infoEmpty": '{{ __("Showing 0 to 0 of 0 entries") }}',
+                        "infoFiltered": '{{ __("(filtered from _MAX_ total entries)") }}',
+                        "infoPostFix": "",
+                        "thousands": ",",
+                        "lengthMenu": '{{ __("Show _MENU_ entries") }}',
+                        "loadingRecords": '{{ __("Loading...") }}',
+                        "processing": '{{ __('processing') }}',
+                        "search": '{{ __("Search:") }}',
+                        "zeroRecords": '{{ __("No matching records found") }}',
+                        "paginate": {
+                            "first": '{{ __("First") }}',
+                            "last": '{{ __("Last") }}',
+                            "next": '{{__("Next")}}',
+                            "previous": '{{ __("Previous") }}'
+                        },
+                        "aria": {
+                            "orderable": '{{ __("Order by this column") }}',
+                            "orderableReverse": '{{ __('Reverse order this column') }}'
+                        }
+                    }
+                });
                 $('#dataTable tbody').on('click', "[id^='poz-buton-']", function (event) {
                     var id = $(this).attr('id');
                     id = id.replace("poz-buton-", '');
@@ -71,7 +102,7 @@
                             $('#poz-buton-' + id).parent().submit();
                         } else {
                             Swal.fire(
-                                'Cancelled',
+                                '{{ __('Cancelled') }}',
                                 '{{ __("Cancel") }}',
                                 'error'
                             )
