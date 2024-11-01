@@ -19,7 +19,6 @@ class AppointmentController extends Controller
         return view('admin.appointment.index', compact('workers','clients','datas'));
     }
 
-    public function create(){}
     public function show($id){}
 
     public function store(Request $request)
