@@ -53,6 +53,7 @@
                 <li> <span><a href="{{ route('index') }}">{{ __('Home') }}</a></span></li>
                 <li><span><a href="{{ route('about') }}">{{ __('About us') }}</a></span></li>
                 <li><span><a href="{{ route('contact') }}">{{ __('Contact us') }}</a></span></li>
+                <li><span><a href="{{ route('chat') }}">{{ __('Ask me') }}</a></span></li>
 
                 @include('layouts.language')
 

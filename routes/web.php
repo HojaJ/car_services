@@ -3,11 +3,13 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\WorkerController;
 use Illuminate\Support\Facades\Route;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,11 @@ Route::get('/about', function () {
     return view('user.about');
 })->name('about');
 
+Route::get('/chat', function () {
+    return view('user.chat');
+})->name('chat');
+
+Route::post('/chat', ChatController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/services/{category}/', [FrontController::class, 'cat_show'])->name('cat_show');

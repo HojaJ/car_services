@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendQr;
 use App\Models\Appointment;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Worker;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Imagick;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class AppointmentController extends Controller
 {
@@ -24,7 +28,7 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         try {
-            Appointment::create([
+            $appointment = Appointment::create([
                 'start_time'            => Carbon::make($request->start_time),
                 'finish_time'           => Carbon::make($request->finish_time),
                 'worker_id'             => $request->worker_id,
@@ -32,6 +36,17 @@ class AppointmentController extends Controller
                 'comment'               => $request->comment
             ]);
 
+            $qr = 'Client: ' . $appointment->user->first_name . ' ' . $appointment->user->last_name . PHP_EOL;
+            $qr .= 'Worker: ' . $appointment->worker->first_name . ' ' . $appointment->worker->last_name . PHP_EOL;
+            $qr .= 'Service: ' . $appointment->worker->profession_en  . PHP_EOL;
+            $qr .= 'Time: ' . \Carbon\Carbon::make($appointment->start_time)->format('Y-m-d') . ' ' . \Carbon\Carbon::make($appointment->start_time)->format('H:i') . '-' .\Carbon\Carbon::make($appointment->finish_time)->format('H:i');
+            $file_name = public_path().'/qr/'.uniqid().'.png';
+            $svg = QrCode::format('png')->size(300)->margin(5)->generate($qr);
+            $im = new Imagick();
+            $im->readImageBlob($svg);
+            $im->setImageFormat("png24");
+            $im->writeImage($file_name);
+            Mail::to($appointment->user->email)->send(new SendQr($file_name));
             return redirect()->route('appointment.index')->with('success', __('Added'));
         } catch (\Exception $e) {
             dd($e);
@@ -42,9 +57,9 @@ class AppointmentController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $data = Appointment::find($id);
+            $appointment = Appointment::find($id);
 
-            $data->update([
+            $appointment->update([
                 'start_time'            => Carbon::make($request->start_time),
                 'finish_time'           => Carbon::make($request->finish_time),
                 'worker_id'             => $request->worker_id,
