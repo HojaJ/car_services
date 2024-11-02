@@ -13,7 +13,6 @@
     <style>
 
         .chat {
-            margin-top: 5rem;
             margin-bottom: 3rem;
             font-weight: var(--bs-body-font-weight);
             line-height: var(--bs-body-line-height);
@@ -29,10 +28,10 @@
             height: var(--bs-card-height);
             word-wrap: break-word;
             background-clip: initial;
-            border: 0 !important;
+            border: 1px solid #1a1b1c26 !important;
             margin-top: 1.5rem !important;
             background-color: #fff;
-            box-shadow: 0 0 3px rgba(60, 72, 88, 0.15) !important;
+            box-shadow: 0px 0px 3px #1a1b1c26 !important;
             border-radius: 6px !important;
         }
         .chat .top {
@@ -199,7 +198,7 @@
             margin: 3px;
             width: 2.35rem;
             height: 2.35rem;
-            background: url("https://assets.edlin.app/icons/font-awesome/paper-plane/paper-plane-regular.svg") center no-repeat;
+            background: url("/paper-plane-regular.svg") center no-repeat;
         }
     </style>
 
@@ -217,14 +216,14 @@
     </section>
 
     <div class="bg_color_1">
-        <div class="container margin_80_55">
+        <div class="container margin_80_55" style="max-width: 850px">
             <div class="chat">
 
                 <!-- Header -->
                 <div class="top">
-                    <img width="100px;" src="{{ asset('img/chat_bot.png') }}" alt="Avatar">
+                    <img width="70px;" src="{{ asset('img/chat_bot.png') }}" alt="Avatar">
                     <div>
-                        <p>Car Service</p>
+                        <p style="margin-bottom: 10px">Carvana</p>
                         <small>Online</small>
                     </div>
                 </div>
@@ -256,8 +255,6 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('js/magnific-popup.min.js') }}"></script>
-
     <script>
         $(document).ready(function() {
             $("form").submit(function (event) {
@@ -299,7 +296,7 @@
 
                     //Cleanup
                     $("form #message").val('');
-                    $(document).scrollTop($(document).height());
+                    // $(document).scrollTop($(document).height());
 
                     //Enable form
                     $("form #message").prop('disabled', false);

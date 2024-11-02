@@ -3,7 +3,7 @@
 /public/build
 /public/hot
 
-/public/qr
+/public/qr/*
 /public/storage
 /storage/*.key
 /vendor

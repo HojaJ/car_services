@@ -8,7 +8,7 @@
     <meta name="description" content="Oguztravel - have fun and enjoy">
     <meta name="author" content="subo">
 
-    <title>Car Services</title>
+    <title>Carvana</title>
 
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon" />
 
@@ -37,8 +37,8 @@
         </div>
         <div id="logo">
             <a href="{{ route('index') }}">
-                <img src="{{ asset('img/logo_1.png') }}" height="36" alt="logo" class="logo_normal">
-                <img src="{{ asset('img/logo.png') }}" height="36" alt="logo-sticky" class="logo_sticky">
+                <img src="{{ asset('img/logo_1.png') }}" height="50" alt="logo" class="logo_normal">
+                <img src="{{ asset('img/logo_1.png') }}" height="50" alt="logo-sticky" class="logo_sticky">
             </a>
         </div>
         <a href="#menu" class="btn_mobile">
@@ -53,14 +53,14 @@
                 <li> <span><a href="{{ route('index') }}">{{ __('Home') }}</a></span></li>
                 <li><span><a href="{{ route('about') }}">{{ __('About us') }}</a></span></li>
                 <li><span><a href="{{ route('contact') }}">{{ __('Contact us') }}</a></span></li>
-                <li><span><a href="{{ route('chat') }}">{{ __('Ask me') }}</a></span></li>
+                <li><span><a href="{{ route('chat') }}">{{ __('Chat') }}</a></span></li>&nbsp;&nbsp;
 
                 @include('layouts.language')
 
                 @if (Auth::guest())
-                <li class="ml-5"><span><a href="{{ route('login') }}">{{ __('Login') }}</a></span></li>
+                <li class="ml-3"><span><a href="{{ route('login') }}">{{ __('Login') }}</a></span></li>
                 @else
-                <li class="ml-5"><span><a href="{{ route('logout') }}">{{ __('Log Out') }}</a></span></li>
+                <li class="ml-2"><span><a href="{{ route('logout') }}">{{ __('Log Out') }}</a></span></li>
                 @endif
             </ul>
         </nav>
@@ -73,7 +73,7 @@
         <div class="container margin_60_35">
             <div class="row">
                 <div class="col-lg-5 col-md-12 p-r-5">
-                    <p><img src="{{ asset('img/logo_1.png') }}" height="36" alt="logo-footer"></p>
+                    <p><img src="{{ asset('img/logo_1.png') }}" height="70" alt="logo-footer"></p>
                     <div class="follow_us">
                         <ul>
                             <li>{{ __('Follow us') }}</li>
@@ -95,8 +95,8 @@
                 <div class="col-lg-3 col-md-6">
                     <h5>{{ __('Contact us') }}</h5>
                     <ul class="contacts">
-                        <li><a href="tel://65555555"><i class="ti-mobile"></i> + 63 555555</a></li>
-                        <li><a href="mailto:"><i class="ti-email"></i> support@.carsericescom</a></li>
+                        <li><a href="tel://65555555"><i class="ti-mobile"></i> +99363555555</a></li>
+                        <li><a href="mailto:"><i class="ti-email"></i> support@.carvana.com</a></li>
                     </ul>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                 <div class="col-lg-6"></div>
                 <div class="col-lg-6">
                     <ul id="additional_links">
-                        <span>Copyright &copy; Car Services 2024</span>
+                        <span>Copyright &copy; Carvana 2024</span>
                     </ul>
                 </div>
             </div>

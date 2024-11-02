@@ -18,7 +18,7 @@ class SendQr extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(private $qr)
+    public function __construct(private $qr, private $text)
     {
         //
     }
@@ -40,7 +40,7 @@ class SendQr extends Mailable
     {
         return new Content(
             view: 'mail',
-            with: ['qr' => $this->qr],
+            with: ['qr' => $this->qr, 'text' => $this->text],
         );
     }
 

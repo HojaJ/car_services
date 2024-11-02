@@ -144,7 +144,7 @@ Author URI: http://themeforest.net/user/Ansonika/
     }
 
     header.sticky .main-menu > ul > li span > a {
-        color: #444;
+        color: #ffffff;
     }
 
     header.sticky .main-menu > ul > li span:hover > a {
@@ -928,8 +928,8 @@ header.header.sticky {
     -webkit-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    border-bottom: 1px solid #ededed;
-    background-color: #fff;
+    border-bottom: 1px solid #121921;
+    background-color: #121921;
     padding: 15px 20px;
 }
 
@@ -9659,16 +9659,16 @@ header.header.sticky .locale {
     -webkit-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    color: #444;
+    color: #ffffff;
 }
 
 header.header .locale svg path {
     stroke: #fff;
 }
 
-header.header.sticky .locale svg path {
-    stroke: #444 !important;
-}
+/*header.header.sticky .locale svg path {*/
+/*    stroke: #444 !important;*/
+/*}*/
 
 .follow_us svg path,
 .contacts svg path {

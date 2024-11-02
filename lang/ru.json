@@ -80,5 +80,7 @@
   "Show _MENU_ entries": "Показать _MENU_ записей",
   "(filtered from _MAX_ total entries)": "(отфильтровано из всего записей: _MAX_)",
   "Showing 0 to 0 of 0 entries": "Совпадающих записей не найдено",
-  "Showing _START_ to _END_ of _TOTAL_ entries": "Показаны от _START_ до _END_ из _TOTAL_ записей"
+  "Showing _START_ to _END_ of _TOTAL_ entries": "Показаны от _START_ до _END_ из _TOTAL_ записей",
+
+  "Chat": "Чат"
 }

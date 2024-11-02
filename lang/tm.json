@@ -92,5 +92,7 @@
   "Show _MENU_ entries": "_MENU_ sanysyny gözkez",
   "(filtered from _MAX_ total entries)": "(_MAX_ hemmesinden saýlanan)",
   "Showing 0 to 0 of 0 entries": "Hiçzat ýok",
-  "Showing _START_ to _END_ of _TOTAL_ entries": "_TOTAL_-içinden _START_-den _END_-a çenli görkezilýä"
+  "Showing _START_ to _END_ of _TOTAL_ entries": "_TOTAL_-içinden _START_-den _END_-a çenli görkezilýä",
+
+  "Chat": "Çat"
 }

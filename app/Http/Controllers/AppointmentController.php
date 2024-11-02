@@ -46,7 +46,7 @@ class AppointmentController extends Controller
             $im->readImageBlob($svg);
             $im->setImageFormat("png24");
             $im->writeImage($file_name);
-            Mail::to($appointment->user->email)->send(new SendQr($file_name));
+            Mail::to($appointment->user->email)->send(new SendQr($file_name, $qr));
             return redirect()->route('appointment.index')->with('success', __('Added'));
         } catch (\Exception $e) {
             dd($e);
